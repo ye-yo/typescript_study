@@ -12,7 +12,7 @@ const countDone = (todos: ITodoItem[]) =>
 function App() {
   const todos = useSelector((state: TodoListState) => state.todos);
   const done = useMemo(() => countDone(todos), [todos]);
-
+  console.log("앱 리렌더링");
   return (
     <div className="App">
       <header>

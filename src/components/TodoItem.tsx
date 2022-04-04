@@ -1,8 +1,10 @@
 import { ITodoItem } from "../interfaces";
 import { useDispatch } from "react-redux";
 import { remove, toggle } from "../store";
+import { memo } from "react";
 
 function TodoItem({ id, content, isDone }: ITodoItem) {
+  console.log(id);
   const dispatch = useDispatch();
   const handleToggleDone = () => {
     dispatch(toggle(id));
@@ -19,4 +21,4 @@ function TodoItem({ id, content, isDone }: ITodoItem) {
   );
 }
 
-export default TodoItem;
+export default memo(TodoItem);

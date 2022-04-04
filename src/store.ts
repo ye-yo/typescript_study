@@ -41,7 +41,7 @@ function todoListReducer(
   switch (action.type) {
     case ADD:
       const length = state.todos.length;
-      const lastId = length > 0 ? state.todos[length - 1].id++ : 0;
+      const lastId = length > 0 ? state.todos[length - 1].id + 1 : 0;
       return {
         todos: [
           ...state.todos,
