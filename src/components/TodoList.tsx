@@ -1,25 +1,39 @@
-import { useRef } from "react";
+import { useState } from "react";
 import TodoItem from "./TodoItem";
-function TodoList() {
-  const inputRef = useRef<null | HTMLInputElement>(null);
+import { useDispatch, useSelector } from "react-redux";
+import { add, TodoListState } from "../store";
+import { ITodoItem } from "../interfaces";
 
-  const addItem = (value: string) => {
-    console.log(value);
-  };
+function TodoList() {
+  const [text, setText] = useState("");
+  const dispatch = useDispatch();
+  const todos = useSelector((state: TodoListState) => state.todos);
   const handleClickAdd = () => {
-    const value = inputRef.current?.value.replace(/\s| /gi, "");
+    const value = text.replace(/\s| /gi, "");
     if (value) {
-      addItem(value);
+      dispatch(add(text));
+      setText("");
     }
+  };
+
+  const handleChangeInput = (e: { target: HTMLInputElement }) => {
+    setText(e.target.value);
   };
   return (
     <div className="todo-list">
-      <div className="todo-input">
-        <input ref={inputRef} type="text" />
-        <button onClick={handleClickAdd}>추가</button>
+      <div className="todo-input-box">
+        <input
+          className="todo-input"
+          type="text"
+          value={text}
+          onChange={handleChangeInput}
+        />
+        <input value="추가" type="button" onClick={handleClickAdd} />
       </div>
       <div>
-        <TodoItem />
+        {todos.map((todo: ITodoItem) => (
+          <TodoItem key={todo.id} {...todo}></TodoItem>
+        ))}
       </div>
     </div>
   );
