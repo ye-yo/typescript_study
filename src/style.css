@@ -1,0 +1,23 @@
+.App {
+  max-width: 480px;
+}
+.todo-list {
+  width: 100%;
+}
+
+.todo-input {
+  display: flex;
+}
+.todo-input input {
+  flex: 1;
+}
+
+.todo-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.todo-item button {
+  margin-left: auto;
+}
