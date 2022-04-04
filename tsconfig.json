@@ -1,26 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    //컴파일러 옵션
+    "target": "es5", // 자바스크립트가 컴파일될 자바스크립트 버전
     "lib": [
+      // 자바스크립트 버전에 따라 기본적으로 사용되는 라이브러리가 있는데 이를 커스텀하고 싶을 경우 사용
       "dom",
       "dom.iterable",
       "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    ], // es5 기본 값 : dom, es5, scripthost
+    "allowJs": true, // 자바스크립트 파일 컴파일 허용 여부
+    "skipLibCheck": true, // 모든 선언 파일(*.d.ts)의 타입 검사를 건너뛸지
+    "esModuleInterop": true, //모든 imports에 대한 namespace 생성을 통해 CommonJS와 ES Modules 간의 상호 운용성이 생기게할 지 여부
+    "allowSyntheticDefaultImports": true, //default export가 아닌 모듈에서도 default import가 가능하게 할지 여부
+    "strict": true, // 엄격한 타입 확인 활성화 여부
+    "forceConsistentCasingInFileNames": true, //동일 파일 참조에 대해 일관성 없는 대소문자를 비활성화할지 여부
+    "noFallthroughCasesInSwitch": true, //스위치 문에 fallthrough 케이스에 대한 오류를 보고할지
+    "module": "esnext", //컴파일 시 사용할 모듈. es5의 기본 값 commonjs
+    "moduleResolution": "node", // 모듈 해석 방법
+    "resolveJsonModule": true, //.json 확장자로 import된 모듈을 포함할지 여부
+    "isolatedModules": true, // 각 파일을 분리된 모듈로 트랜스파일 할지 여부
+    "noEmit": true, // 결과 파일 내보낼지 여부
+    "jsx": "react-jsx" //.tsx 파일에서 지월할 jsx
   },
   "include": [
+    // 컴파일할 파일 경로
     "src"
   ]
 }
