@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./style.css";
 import todoListReducer from "./store";
@@ -7,12 +7,12 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 const store = createStore(todoListReducer);
-
-ReactDOM.render(
+const container = document.getElementById("root") as HTMLElement;
+const root = createRoot(container);
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );

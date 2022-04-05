@@ -11,7 +11,6 @@ function TodoList() {
   const handleClickAdd = () => {
     const value = text.replace(/\s| /gi, "");
     if (value) {
-      console.log("Add");
       dispatch(add(text));
       setText("");
     }
